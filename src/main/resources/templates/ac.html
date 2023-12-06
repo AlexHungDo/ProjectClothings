@@ -1,0 +1,60 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PRODUCT'S MANEGER</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.product.css">
+</head>
+<body>
+<section class="ftco-section">
+    <div class="container">
+
+        <a th:href="@{/indexadmin/{Id}/addproduct(Id=${catId})}" class="text-xs-right">Add New Product</a>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead class="thead-primary">
+                        <tr>
+                            <th>Images</th>
+                            <th>Product's Name</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th width="20px">Action</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="product:${listpro}" class="alert" role="alert">
+                            <td>
+                                <img src="https://via.placeholder.com/100x50">
+                            </td>
+                            <td>
+                                <div class="email">
+                                    <span><a th:text="${product.proName}"></a></span>
+                                    <span>Free Fire Song Dai Thanh Huyen Thoai</span>
+                                </div>
+                            </td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.Description}"></td>
+                            <form>
+                            <td><a th:href="@{/indexadmin/{id1}/{id2}(id1=${catId},id2=${product.proId})}">Delete</a></td>
+                            <td><a th:href="@{/indexadmin/{id1}/{id2}/edit(id1=${catId},id2=${product.proId})}">Edit</a></td>
+                            </form>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/indexadmin/addnewproduct/{catId}(catId=${catId})}" th:object="${product}" method="post">
+    <label for="proName">Name</label>
+    <input type="text" th:field="*{proName}" id="proName" placeholder="Product's Name">
+    <label for="Description">Description</label>
+    <input type="text" th:field="*{Description}" id="Description" placeholder="Description">
+    <label for="price">Price</label>
+    <input type="text" th:field="*{price}" id="price" placeholder="Price">
+    <input type="submit" value="Add Product">
+</form>
+</body>
+</html>
